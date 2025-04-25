@@ -1,6 +1,7 @@
 import sys
 import csv
-from PIL import Image, ImageDraw, ImageFont
+import page_generator as page_gen
+import sign_generator as sign_gen
 
 def main():
   if len(sys.argv) != 2:
@@ -25,11 +26,7 @@ def main():
     sciname = row[1]
     commonname = row[2]
 
-  sign = Image.new('RGB', (2350, 1500), color = (0, 99, 0))
-  draw = ImageDraw.Draw(sign)
-  draw.rectangle([50, 50, 2300, 1450], fill=(0, 99, 0), outline=(255, 255, 255), width=50)
-  sign.show()
-  sign.save('sign.png')
+    sign_gen.signGenerate(code, sciname, commonname)
 
   file.close()
 
