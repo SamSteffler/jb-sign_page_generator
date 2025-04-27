@@ -27,6 +27,7 @@ def main():
     commonname = row[2]
 
     sign_gen.signGenerate(code, sciname, commonname)
+    page_gen.pageGenerate(row)
 
   file.close()
 

@@ -12,7 +12,7 @@ def pageGenerate(argslist):
     image = argslist[8]
     
     # criar html modelo da pagina
-    html_template = """""
+    html_template = """
     <!DOCTYPE html>
     <html lang="pt-BR">
     <head>
@@ -20,36 +20,36 @@ def pageGenerate(argslist):
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Placa de Identificação</title>
         <style>
-            body {
+            body {{
                 font-family: Arial, sans-serif;
                 margin: 0;
                 padding: 20px;
                 background-color: #f4f4f4;
-            }
-            .container {
+            }}
+            .container {{
                 max-width: 800px;
                 margin: auto;
                 background: white;
                 padding: 20px;
                 border-radius: 5px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
-            h1 {
+            }}
+            h1 {{
                 text-align: center;
-            }
-            img {
+            }}
+            img {{
                 max-width: 100%;
                 height: auto;
-            }
-            .info {
+            }}
+            .info {{
                 margin-top: 20px;
-            }
+            }}
         </style>
     </head>
     <body>
         <div class="container">
-            <h1>Placa de Identificação</h1>
-            <img src="{image}" alt="Imagem do Organismo">
+            <h1>Informações da planta</h1>
+            <img src="{image}" alt="{commonname}">
             <div class="info">
                 <h2>{sciname}</h2>
                 <p><strong>Nome Comum:</strong> {commonname}</p>
@@ -64,7 +64,7 @@ def pageGenerate(argslist):
         </div>
     </body>
     </html>
-    """""
+    """
     # criar html com os dados
     html_content = html_template.format(
         code=html.escape(code),
@@ -76,12 +76,11 @@ def pageGenerate(argslist):
         type=html.escape(type),
         description=html.escape(description),
         image=html.escape(image)
-    )
+     )
     # salvar html em arquivo
-    with open(f'{code}.html', 'w', encoding='utf-8') as file:
+    with open(f'output/{code}.html', 'w', encoding='utf-8') as file:
         file.write(html_content)
     print(f"Arquivo HTML '{code}.html' gerado com sucesso.")
     # abrir html no navegador
     import webbrowser
     webbrowser.open(f'file://{code}.html')
-    
