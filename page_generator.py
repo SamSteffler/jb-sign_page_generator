@@ -84,3 +84,28 @@ def pageGenerate(argslist):
     # abrir html no navegador
     import webbrowser
     webbrowser.open(f'file://{code}.html')
+
+
+def CSVtoJSON(csv_file):
+    import csv
+    import json
+    data = []
+    args = ["code", "sciname", "commonname", "latitude", "longitude", "origin", "type", "description", "image"]
+    # Lê o arquivo CSV e converte para JSON
+    with open(csv_file, mode='r', encoding='utf-8') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            # Cria um dicionário para cada linha do CSV
+            entry = {args[i]: row[i] for i in range(len(args))}
+            # Adiciona o dicionário à lista de dados
+            data.append(entry)
+    json_file = f'output/{csv_file.split(".")[0]}.json'
+    json_vue = f'vue_jb_static_pages/public/data/{csv_file.split(".")[0]}.json'
+    # Salva o JSON em um arquivo
+    with open(json_file, mode='w', encoding='utf-8') as file:
+        json.dump(data, file, ensure_ascii=False, indent=4)
+
+    with open(json_vue, mode='w', encoding='utf-8') as file:
+        json.dump(data, file, ensure_ascii=False, indent=4)
+
+    print(f"Arquivos JSON '{json_file}' e '{json_vue}' gerados com sucesso.")
