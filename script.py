@@ -28,7 +28,7 @@ def main():
 
     sign_gen.signGenerate(code, sciname, commonname)
     page_gen.pageGenerate(row)
-    page_gen.CSVtoJSON(input_file)
+    #page_gen.CSVtoJSON(input_file)
 
   file.close()
 

@@ -1,21 +1,12 @@
+// src/router.js
 import { createRouter, createWebHistory } from 'vue-router';
-import Page from '../components/Page.vue';
+import PlantDetail from '../views/PlantDetail.vue';
 
 const routes = [
-  {
-    path: '/item/:id',
-    name: 'ItemPage',
-    component: Page,
-    props: route => {
-      console.log('Route params:', route.params); // Log the route parameters
-      return { id: route.params.id }; // Pass the `id` as a prop
-    },
-  },
+  { path: '/item/:id', name: 'PlantDetail', component: PlantDetail },
 ];
 
-const router = createRouter({
+export default createRouter({
   history: createWebHistory(),
   routes,
 });
-
-export default router;

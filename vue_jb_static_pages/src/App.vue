@@ -1,9 +1,3 @@
-<script setup>
-import Page from './components/Page.vue';
-</script>
-
 <template>
-  <div>
-    <Page />
-  </div>
+    <router-view />
 </template>

@@ -40,6 +40,7 @@ def pageGenerate(argslist):
             img {{
                 max-width: 100%;
                 height: auto;
+                margin-bottom: 10px;
             }}
             .info {{
                 margin-top: 20px;
@@ -49,7 +50,7 @@ def pageGenerate(argslist):
     <body>
         <div class="container">
             <h1>Informações da planta</h1>
-            <img src="{image}" alt="{commonname}">
+            {images}
             <div class="info">
                 <h2>{sciname}</h2>
                 <p><strong>Nome Comum:</strong> {commonname}</p>
@@ -65,6 +66,10 @@ def pageGenerate(argslist):
     </body>
     </html>
     """
+    
+    # Generate multiple <img> tags if needed
+    image_list = image.split(';')  # Assuming images are separated by semicolons
+    images = ''.join(f'<img src="images/{code}-{i+1}.png" alt="{html.escape(commonname)}" style="height: 400px; width: auto;">' for i in range(len(image_list)))
     # criar html com os dados
     html_content = html_template.format(
         code=html.escape(code),
@@ -75,8 +80,8 @@ def pageGenerate(argslist):
         origin=html.escape(origin),
         type=html.escape(type),
         description=html.escape(description),
-        image=html.escape(image)
-     )
+        images=images  # ← do NOT escape this
+    )
     # salvar html em arquivo
     with open(f'output/{code}.html', 'w', encoding='utf-8') as file:
         file.write(html_content)
