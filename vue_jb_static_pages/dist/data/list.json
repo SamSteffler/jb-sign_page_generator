@@ -1,0 +1,24 @@
+[
+    {
+        "code": "00001",
+        "sciname": "Ilex paraguariensis",
+        "commonname": "Erva-mate",
+        "latitude": "-37.00000",
+        "longitude": "-58.00000",
+        "origin": "Nativa",
+        "type": "Árvore",
+        "description": "A erva-mate é uma planta muito comum na região Sul do país, e é utilizada para tomar chimarrão, uma bebida típica da região.",
+        "image": "00001.png"
+    },
+    {
+        "code": "01234",
+        "sciname": "Paubrasilia enchinata",
+        "commonname": "Pau-de-pernambuco",
+        "latitude": "-37.00000",
+        "longitude": "-58.00000",
+        "origin": "Nativa",
+        "type": "Árvore",
+        "description": "A erva-mate é uma planta muito comum na região Sul do país, e é utilizada para tomar chimarrão, uma bebida típica da região.",
+        "image": "01234.png"
+    }
+]
